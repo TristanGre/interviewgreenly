@@ -7,7 +7,9 @@ export class Naturalia extends DiscountOffer {
 
 	updateDiscount() {
 		--this.expiresIn;
-		if (this.expiresIn <= 0 && this.discountInPercent < 50) this.discountInPercent += 2;
+		if (this.expiresIn < 0 && this.discountInPercent < 50) this.discountInPercent += 2;
 		else if (this.discountInPercent < 50) ++this.discountInPercent;
+
+		if (this.discountInPercent > 50) this.discountInPercent = 50;
 	}
 }

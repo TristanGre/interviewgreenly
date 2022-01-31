@@ -8,7 +8,7 @@ export class DiscountOffer {
 	// Update the discount for the discount created
 	updateDiscount() {
 	  --this.expiresIn;
-	  if (this.expiresIn <= 0 && this.discountInPercent >= 2) this.discountInPercent -= 2;
+	  if (this.expiresIn < 0 && this.discountInPercent >= 2) this.discountInPercent -= 2;
 	  else if (this.discountInPercent > 0) this.discountInPercent -= 1;
 	}
 }
